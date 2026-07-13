@@ -216,25 +216,6 @@ document
 
 }
 
-    .catch(error=>{
-
-
-    console.log(
-    "Sin conexión. Guardando pendiente..."
-    );
-
-
-    guardarPendiente(datos);
-
-
-    alert(
-    "⚠️ Sin conexión.\n\n" +
-    "La asistencia quedó guardada y se enviará cuando vuelva internet."
-    );
-
-
-});
-
 
 
 });
@@ -335,9 +316,5 @@ function enviarAsistencia(datos){
         "⚠️ No se pudo conectar.\n\n" +
         "La asistencia quedó guardada para sincronizar después."
         );
-
-
-    });
-
-
-}
+    }
+           });
