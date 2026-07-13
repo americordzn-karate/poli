@@ -323,18 +323,32 @@ function enviarAsistencia(datos){
 
 }
 
-window.addEventListener(
-    "online",
-    function(){
+//window.addEventListener(
+//    "online",
+//    function(){
 
 
       //  console.log(
        //     "Internet recuperado"
       //  );
-alert("Internet recuperado");
+//alert("Internet recuperado");
+
+  //      sincronizarPendientes();
+
+
+ //   }
+//);
+
+setInterval(function(){
+
+
+    if(navigator.onLine){
+
 
         sincronizarPendientes();
 
 
     }
-);
+
+
+},10000);
