@@ -328,10 +328,10 @@ window.addEventListener(
     function(){
 
 
-        console.log(
-            "Internet recuperado"
-        );
-
+      //  console.log(
+       //     "Internet recuperado"
+      //  );
+alert("Internet recuperado");
 
         sincronizarPendientes();
 
