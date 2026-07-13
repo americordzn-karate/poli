@@ -303,7 +303,7 @@ function enviarAsistencia(datos){
     })
 
 
-    .catch(error=>{
+        .catch(error=>{
 
 
         console.log(error);
@@ -316,5 +316,9 @@ function enviarAsistencia(datos){
         "⚠️ No se pudo conectar.\n\n" +
         "La asistencia quedó guardada para sincronizar después."
         );
-    }
-           });
+
+
+    });
+
+
+}
