@@ -146,7 +146,49 @@ function mostrarAlumnos(alumnos) {
 
         });
 
+document
+.getElementById("btnRegistrar")
+.addEventListener("click",function(){
 
+
+    const seleccionados =
+    document.querySelectorAll(
+        'input[type="checkbox"]:checked'
+    );
+
+
+    let alumnos = [];
+
+
+    seleccionados.forEach(check=>{
+
+
+        alumnos.push(check.value);
+
+
+    });
+
+
+    if(alumnos.length === 0){
+
+
+        alert("No seleccionaste alumnos.");
+
+
+        return;
+
+
+    }
+
+
+
+    alert(
+        "Alumnos seleccionados:\n\n" +
+        alumnos.join("\n")
+    );
+
+
+});
 
     });
 
