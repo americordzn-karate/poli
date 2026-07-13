@@ -196,37 +196,25 @@ document
 
 
 
-    fetch(API, {
+    if(navigator.onLine){
 
 
-        method:"POST",
+    enviarAsistencia(datos);
 
 
-        headers:{
+}else{
 
 
-            "Content-Type":"text/plain;charset=utf-8"
+    guardarPendiente(datos);
 
 
-        },
+    alert(
+    "⚠️ Sin conexión.\n\n" +
+    "La asistencia quedó guardada y se enviará cuando vuelva internet."
+    );
 
 
-        body: JSON.stringify(datos)
-
-
-    })
-
-
-    .then(respuesta=>respuesta.json())
-
-
-    .then(resultado=>{
-
-
-        mostrarResultado(resultado);
-
-
-    })
+}
 
     .catch(error=>{
 
@@ -288,6 +276,62 @@ function mostrarResultado(resultado){
 
 
     alert(mensaje);
+
+
+}
+
+function enviarAsistencia(datos){
+
+
+    fetch(API, {
+
+
+        method:"POST",
+
+
+        headers:{
+
+
+            "Content-Type":"text/plain;charset=utf-8"
+
+
+        },
+
+
+        body:JSON.stringify(datos)
+
+
+    })
+
+
+    .then(respuesta=>respuesta.json())
+
+
+    .then(resultado=>{
+
+
+        mostrarResultado(resultado);
+
+
+    })
+
+
+    .catch(error=>{
+
+
+        console.log(error);
+
+
+        guardarPendiente(datos);
+
+
+        alert(
+        "⚠️ No se pudo conectar.\n\n" +
+        "La asistencia quedó guardada para sincronizar después."
+        );
+
+
+    });
 
 
 }
