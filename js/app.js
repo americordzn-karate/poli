@@ -219,15 +219,21 @@ document
     .catch(error=>{
 
 
-        console.error(error);
+    console.log(
+    "Sin conexión. Guardando pendiente..."
+    );
 
 
-        alert(
-        "Error al registrar asistencia."
-        );
+    guardarPendiente(datos);
 
 
-    });
+    alert(
+    "⚠️ Sin conexión.\n\n" +
+    "La asistencia quedó guardada y se enviará cuando vuelva internet."
+    );
+
+
+});
 
 
 
