@@ -37,7 +37,7 @@ function limpiarPendientes(){
 }
 
 function sincronizarPendientes(){
-
+console.log("Ejecutando sincronización...");
 
     const pendientes = obtenerPendientes();
 
