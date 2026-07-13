@@ -88,13 +88,18 @@ console.log("Ejecutando sincronización...");
         .then(resultado=>{
 
 
-            console.log(
-                "Sincronizado:",
-                resultado
-            );
+    console.log(
+        "Sincronizado:",
+        resultado
+    );
 
 
-        })
+    alert(
+        "✅ Asistencias sincronizadas correctamente."
+    );
+
+
+});
 
 
         .catch(error=>{
