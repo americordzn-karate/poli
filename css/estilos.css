@@ -103,3 +103,27 @@ font-size:14px;
 color:#888;
 
 }
+
+#btnRegistrar{
+
+display:block;
+
+width:90%;
+
+margin:30px auto;
+
+padding:15px;
+
+font-size:20px;
+
+font-weight:bold;
+
+background:#d4a017;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
