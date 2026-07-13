@@ -322,3 +322,19 @@ function enviarAsistencia(datos){
 
 
 }
+
+window.addEventListener(
+    "online",
+    function(){
+
+
+        console.log(
+            "Internet recuperado"
+        );
+
+
+        sincronizarPendientes();
+
+
+    }
+);
