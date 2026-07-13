@@ -11,7 +11,7 @@ if (!token) {
 
 
 // URL de tu Apps Script
-const API = "AQUI_PONEMOS_LA_URL_DE_APPS_SCRIPT";
+const API = "https://script.google.com/macros/s/AKfycby_VEimaoCdKecJQ7WrhYtQuPzy4-FPuvjHXuh46kuhENkc_diQkBiNAYlaHuOmb9qQ/exec";
 
 
 fetch(API + "?token=" + token)
