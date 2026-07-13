@@ -223,50 +223,10 @@ document
     .then(resultado=>{
 
 
-        console.log(resultado);
-
-
-
-        let mensaje="";
-
-
-
-        if(resultado.registrados.length > 0){
-
-
-            mensaje += 
-            "✅ Asistencias registradas:\n\n";
-
-
-            mensaje +=
-            resultado.registrados.join("\n");
-
-
-        }
-
-
-
-        if(resultado.omitidos.length > 0){
-
-
-            mensaje +=
-            "\n\n⚠️ No registrados:\n\n";
-
-
-            mensaje +=
-            resultado.omitidos.join("\n");
-
-
-        }
-
-
-
-        alert(mensaje);
-
+        mostrarResultado(resultado);
 
 
     })
-
 
     .catch(error=>{
 
@@ -287,6 +247,47 @@ document
 
     });
 
+
+
+}
+
+function mostrarResultado(resultado){
+
+
+    let mensaje="";
+
+
+    if(resultado.registrados.length > 0){
+
+
+        mensaje +=
+        "✅ Asistencias registradas:\n\n";
+
+
+        mensaje +=
+        resultado.registrados.join("\n");
+
+
+    }
+
+
+
+    if(resultado.omitidos.length > 0){
+
+
+        mensaje +=
+        "\n\n⚠️ No registrados:\n\n";
+
+
+        mensaje +=
+        resultado.omitidos.join("\n");
+
+
+    }
+
+
+
+    alert(mensaje);
 
 
 }
