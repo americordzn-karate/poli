@@ -169,6 +169,7 @@ document
     });
 
 
+
     if(alumnos.length === 0){
 
 
@@ -182,10 +183,104 @@ document
 
 
 
-    alert(
-        "Alumnos seleccionados:\n\n" +
-        alumnos.join("\n")
-    );
+    const datos = {
+
+
+        token: token,
+
+
+        alumnos: alumnos
+
+
+    };
+
+
+
+    fetch(API, {
+
+
+        method:"POST",
+
+
+        headers:{
+
+
+            "Content-Type":"text/plain;charset=utf-8"
+
+
+        },
+
+
+        body: JSON.stringify(datos)
+
+
+    })
+
+
+    .then(respuesta=>respuesta.json())
+
+
+    .then(resultado=>{
+
+
+        console.log(resultado);
+
+
+
+        let mensaje="";
+
+
+
+        if(resultado.registrados.length > 0){
+
+
+            mensaje += 
+            "✅ Asistencias registradas:\n\n";
+
+
+            mensaje +=
+            resultado.registrados.join("\n");
+
+
+        }
+
+
+
+        if(resultado.omitidos.length > 0){
+
+
+            mensaje +=
+            "\n\n⚠️ No registrados:\n\n";
+
+
+            mensaje +=
+            resultado.omitidos.join("\n");
+
+
+        }
+
+
+
+        alert(mensaje);
+
+
+
+    })
+
+
+    .catch(error=>{
+
+
+        console.error(error);
+
+
+        alert(
+        "Error al registrar asistencia."
+        );
+
+
+    });
+
 
 
 });
