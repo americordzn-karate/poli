@@ -3,15 +3,14 @@ const parametros = new URLSearchParams(window.location.search);
 const token = parametros.get("token");
 
 
+const API = "https://script.google.com/macros/s/AKfycby_VEimaoCdKecJQ7WrhYtQuPzy4-FPuvjHXuh46kuhENkc_diQkBiNAYlaHuOmb9qQ/exec";
+
+
 if (!token) {
 
     alert("No se recibió el token de acceso.");
 
 }
-
-
-// URL de tu Apps Script
-const API = "https://script.google.com/macros/s/AKfycby_VEimaoCdKecJQ7WrhYtQuPzy4-FPuvjHXuh46kuhENkc_diQkBiNAYlaHuOmb9qQ/exec";
 
 
 fetch(API + "?token=" + token)
@@ -20,12 +19,15 @@ fetch(API + "?token=" + token)
 
 .then(datos => {
 
+
     console.log("Respuesta recibida:");
 
     console.log(datos);
 
 
-    if(datos.ok){
+
+    if (datos.ok) {
+
 
         document.getElementById("sucursal").innerHTML =
         datos.sucursal.nombre;
@@ -38,19 +40,35 @@ fetch(API + "?token=" + token)
         mostrarAlumnos(datos.alumnos);
 
 
-    }else{
+
+    } else {
+
 
         document.getElementById("estado").innerHTML =
         "❌ Error de acceso";
 
+
     }
+
+
+
+})
+
+.catch(error => {
+
+
+    console.error("Error al conectar con la API:");
+
+    console.error(error);
 
 
 });
 
 
 
-function mostrarAlumnos(alumnos){
+
+
+function mostrarAlumnos(alumnos) {
 
 
     const contenido =
@@ -63,14 +81,13 @@ function mostrarAlumnos(alumnos){
     let grupos = {};
 
 
-    // Agrupar alumnos por Grupo_ID
 
-    alumnos.forEach(alumno=>{
+    alumnos.forEach(alumno => {
 
 
-        if(!grupos[alumno.grupo]){
+        if (!grupos[alumno.grupo]) {
 
-            grupos[alumno.grupo]=[];
+            grupos[alumno.grupo] = [];
 
         }
 
@@ -82,16 +99,17 @@ function mostrarAlumnos(alumnos){
 
 
 
-    // Crear visualización
 
 
-    Object.keys(grupos).forEach(grupo=>{
+    Object.keys(grupos).forEach(grupo => {
 
 
-        let titulo =
+        const titulo =
         document.createElement("div");
 
-        titulo.className="grupo";
+
+        titulo.className = "grupo";
+
 
         titulo.innerHTML =
         "GRUPO " + grupo;
@@ -101,14 +119,15 @@ function mostrarAlumnos(alumnos){
 
 
 
-        grupos[grupo].forEach(alumno=>{
+
+        grupos[grupo].forEach(alumno => {
 
 
-            let fila =
+            const fila =
             document.createElement("div");
 
 
-            fila.className="alumno";
+            fila.className = "alumno";
 
 
             fila.innerHTML = `
@@ -128,15 +147,9 @@ function mostrarAlumnos(alumnos){
         });
 
 
+
     });
 
 
+
 }
-
-.catch(error => {
-
-    console.error("Error al conectar con la API:");
-
-    console.error(error);
-
-});
